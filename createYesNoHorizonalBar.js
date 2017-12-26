@@ -1,9 +1,8 @@
-console.log(“Test”);
-
+console.log("Test");
 function createYesNoHorizontalBar(filePath, element) {
 
     var margin = {top: 20, right: 30, bottom: 40, left: 30},
-        width = $("#trinity-body").width()-margin.left-margin.right;//960 - margin.left - margin.right,
+        width = $(element).width()-margin.left-margin.right;//960 - margin.left - margin.right,
         height = 400-margin.top-margin.bottom;//500 - margin.top - margin.bottom;
 
     var x = d3.scale.linear()
@@ -23,12 +22,12 @@ function createYesNoHorizontalBar(filePath, element) {
         .tickSize(0)
         .tickPadding(6);
 
-    var svg = d3.select(“element”).append("svg")
+    var svg = d3.select(element).append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-    d3.tsv(“filePath”, type, function(error, data) {
+    d3.tsv(filePath, type, function(error, data) {
            x.domain(d3.extent(data, function(d) { return d.value; })).nice();
            y.domain(data.map(function(d) { return d.name; }));
 
