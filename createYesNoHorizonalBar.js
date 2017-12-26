@@ -1,4 +1,4 @@
-createYesNoHorizontalBar(filePath, element) {
+function createYesNoHorizontalBar(filePath, element) {
 
 var margin = {top: 20, right: 30, bottom: 40, left: 30},
     width = $("#trinity-body").width()-margin.left-margin.right;//960 - margin.left - margin.right,
